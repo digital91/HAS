@@ -1,0 +1,317 @@
+/* Contact Buttons Styles - Cafe Phim Inspired */
+.contact-buttons-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual contact buttons - Round style like Cafe Phim */
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.contact-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.contact-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+/* Floating animation like Cafe Phim */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Bounce animation for attention */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Apply bounce animation every 5 seconds */
+.contact-btn:nth-child(1) {
+  animation: float 3s ease-in-out infinite, bounce 1s ease-in-out 5s infinite;
+}
+
+.contact-btn:nth-child(2) {
+  animation: float 3s ease-in-out infinite 0.5s, bounce 1s ease-in-out 5.5s infinite;
+}
+
+.contact-btn:nth-child(3) {
+  animation: float 3s ease-in-out infinite 1s, bounce 1s ease-in-out 6s infinite;
+}
+
+/* Icon styling for round buttons */
+.btn-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.btn-icon {
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.zalo-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+/* Hide text for round buttons - only show icons */
+.btn-text {
+  display: none;
+}
+
+/* Ripple effect on click */
+.contact-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.contact-btn:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Icon animation on hover for round buttons */
+.contact-btn:hover .btn-icon,
+.contact-btn:hover .zalo-icon {
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* Zalo Button - Round Cafe Phim Style */
+.zalo-btn {
+  background: linear-gradient(135deg, #0068ff 0%, #004bb5 100%);
+  box-shadow: 0 8px 25px rgba(0, 104, 255, 0.3);
+}
+
+.zalo-btn:hover {
+  background: linear-gradient(135deg, #0056e6 0%, #003d9e 100%);
+  box-shadow: 0 15px 35px rgba(0, 104, 255, 0.4);
+}
+
+/* Facebook Button - Round Cafe Phim Style */
+.facebook-btn {
+  background: linear-gradient(135deg, #1877f2 0%, #0d5bb8 100%);
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-btn:hover {
+  background: linear-gradient(135deg, #166fe5 0%, #0b4fa0 100%);
+  box-shadow: 0 15px 35px rgba(24, 119, 242, 0.4);
+}
+
+/* Phone Button - Round Cafe Phim Style */
+.phone-btn {
+  background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+  box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
+}
+
+.phone-btn:hover {
+  background: linear-gradient(135deg, #e63939 0%, #b30000 100%);
+  box-shadow: 0 15px 35px rgba(255, 68, 68, 0.4);
+}
+
+/* Special pulse effect for Cafe Phim style */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Apply pulse glow to all buttons */
+.zalo-btn {
+  animation: float 3s ease-in-out infinite, bounce 1s ease-in-out 5s infinite, pulse-glow 4s ease-in-out infinite;
+}
+
+.facebook-btn {
+  animation: float 3s ease-in-out infinite 0.5s, bounce 1s ease-in-out 5.5s infinite, pulse-glow 4s ease-in-out infinite 1s;
+}
+
+.phone-btn {
+  animation: float 3s ease-in-out infinite 1s, bounce 1s ease-in-out 6s infinite, pulse-glow 4s ease-in-out infinite 2s;
+}
+
+/* Responsive design for round buttons */
+@media (max-width: 768px) {
+  .contact-buttons-container {
+    bottom: 15px;
+    left: 15px;
+    gap: 12px;
+  }
+
+  .contact-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .btn-icon {
+    font-size: 20px;
+  }
+
+  .zalo-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-buttons-container {
+    bottom: 10px;
+    left: 10px;
+    gap: 10px;
+  }
+
+  .contact-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn-icon {
+    font-size: 18px;
+  }
+
+  .zalo-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Initial slide-in animation */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-btn {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+/* Override initial animation after slide-in completes */
+.contact-btn:nth-child(1) {
+  animation: slideInLeft 0.8s ease-out 0.1s, float 3s ease-in-out infinite 1s, bounce 1s ease-in-out 5s infinite, pulse-glow 4s ease-in-out infinite;
+}
+
+.contact-btn:nth-child(2) {
+  animation: slideInLeft 0.8s ease-out 0.2s, float 3s ease-in-out infinite 1.5s, bounce 1s ease-in-out 5.5s infinite, pulse-glow 4s ease-in-out infinite 1s;
+}
+
+.contact-btn:nth-child(3) {
+  animation: slideInLeft 0.8s ease-out 0.3s, float 3s ease-in-out infinite 2s, bounce 1s ease-in-out 6s infinite, pulse-glow 4s ease-in-out infinite 2s;
+}
+
+
+/* Tooltip for round buttons */
+.contact-btn {
+  position: relative;
+}
+
+.contact-btn .tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.contact-btn .tooltip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: rgba(0, 0, 0, 0.9);
+}
+
+.contact-btn:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Shimmer effect for round buttons */
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.contact-btn:hover::before {
+  left: 100%;
+}

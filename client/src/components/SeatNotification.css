@@ -1,0 +1,256 @@
+.seat-notification {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: min(350px, 90vw);
+  max-width: 350px;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: linear-gradient(45deg, rgba(229, 9, 20, 0.1), rgba(244, 6, 18, 0.1));
+  border-bottom: 1px solid rgba(229, 9, 20, 0.2);
+}
+
+.notification-title {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.title-icon {
+  margin-right: 0.5rem;
+  color: #e50914;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: rgba(229, 9, 20, 0.2);
+  color: #e50914;
+}
+
+.notification-content {
+  padding: 1rem;
+}
+
+.seat-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.stat-number.available {
+  color: #4CAF50;
+}
+
+.stat-number.selected {
+  color: #ffa500;
+}
+
+.stat-number.booked {
+  color: #e50914;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #cccccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.recent-activity {
+  margin-bottom: 1rem;
+}
+
+.recent-activity h4 {
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.activity-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.activity-icon.select {
+  color: #ffa500;
+}
+
+.activity-icon.deselect {
+  color: #4CAF50;
+}
+
+.activity-icon.book {
+  color: #e50914;
+}
+
+.activity-message {
+  flex: 1;
+  color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+.activity-time {
+  color: #888888;
+  font-size: 0.75rem;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.connected {
+  background: #4CAF50;
+}
+
+.status-indicator.disconnected {
+  background: #f44336;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .seat-notification {
+    top: 80px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: calc(100vw - 20px);
+    transform: scale(0.95);
+  }
+
+  .seat-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .stat-item {
+    padding: 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .seat-notification {
+    top: 70px;
+    right: 5px;
+    left: 5px;
+    max-width: calc(100vw - 10px);
+    transform: scale(0.9);
+  }
+
+  .notification-header {
+    padding: 0.75rem;
+  }
+
+  .notification-content {
+    padding: 0.75rem;
+  }
+
+  .seat-stats {
+    gap: 0.25rem;
+  }
+
+  .stat-item {
+    padding: 0.4rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+}

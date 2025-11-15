@@ -1,0 +1,255 @@
+.booking-success {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+}
+
+.success-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.success-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #4CAF50;
+  margin-bottom: 1rem;
+}
+
+.success-header h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.success-header p {
+  color: #cccccc;
+  font-size: 1.1rem;
+}
+
+.booking-details {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-card h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e50914;
+  padding-bottom: 0.5rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item .label {
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.detail-item .value {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.booking-code {
+  color: #e50914;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+}
+
+.status.confirmed {
+  color: #4CAF50;
+}
+
+.status.pending {
+  color: #ffa500;
+}
+
+.status.cancelled {
+  color: #f44336;
+}
+
+.price {
+  color: #e50914;
+  font-size: 1.2rem;
+}
+
+.movie-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.movie-info img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-info .info h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-info .info p {
+  color: #cccccc;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.seats-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.seat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seat-number {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.seat-type {
+  color: #e50914;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.seat-price {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.success-actions .btn {
+  min-width: 150px;
+}
+
+.success-note {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.success-note p {
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.success-note strong {
+  color: #ffc107;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .booking-success {
+    padding: 1rem 0;
+  }
+
+  .success-header h1 {
+    font-size: 2rem;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+  }
+
+  .detail-card {
+    padding: 1.5rem;
+  }
+
+  .movie-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .movie-info img {
+    width: 80px;
+    height: 110px;
+  }
+
+  .seats-info {
+    grid-template-columns: 1fr;
+  }
+
+  .success-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .success-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .success-icon {
+    font-size: 2.5rem;
+  }
+
+  .detail-card {
+    padding: 1rem;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .seat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

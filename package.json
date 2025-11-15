@@ -1,0 +1,33 @@
+{
+  "name": "cinemas-has",
+  "version": "1.0.0",
+  "description": "Website rạp chiếu phim với tính năng đặt chỗ real-time",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "demo": "concurrently \"npm run demo-server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "demo-server": "cd server && npm run demo",
+    "client": "cd client && npm start",
+    "stop": "./stop.bat",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": [
+    "cinema",
+    "booking",
+    "react",
+    "nodejs"
+  ],
+  "author": "HAS Cinema",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.3",
+    "form-data": "^4.0.4",
+    "mongoose": "^8.19.1"
+  }
+}
