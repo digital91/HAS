@@ -54,7 +54,7 @@ const RoomManagement = () => {
 
   const fetchRooms = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/rooms');
+      const response = await axios.get('/api/rooms');
       setRooms(response.data);
       setLoading(false);
     } catch (error) {
@@ -127,7 +127,7 @@ const RoomManagement = () => {
 
     try {
       const roomId = selectedRoom._id || selectedRoom.id;
-      const response = await axios.post(`http://localhost:5000/api/rooms/${roomId}/book`);
+      const response = await axios.post(`/api/rooms/${roomId}/book`);
       toast.success('Đặt phòng thành công!');
       setIsBookingModalOpen(false);
       setSelectedRoom(null);
@@ -150,7 +150,7 @@ const RoomManagement = () => {
       
       const headers = { Authorization: `Bearer ${token}` };
       
-      const url = `http://localhost:5000/api/admin/rooms/${roomId}/status`;
+      const url = `/api/admin/${'rooms'}/${roomId}/status`;
       console.log('Request URL:', url);
       console.log('Request headers:', headers);
       
@@ -184,7 +184,7 @@ const RoomManagement = () => {
       
       const headers = { Authorization: `Bearer ${token}` };
       
-      const response = await axios.put(`http://localhost:5000/api/rooms/${roomId}`, {
+      const response = await axios.put(`/api/rooms/${roomId}`, {
         thumbnailUrl: thumbnailUrl
       }, { headers });
       

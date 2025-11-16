@@ -16,15 +16,17 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     try {
-      // Check if this is a browser restore (performance.now() < 1000 means page loaded very quickly)
-      const isBrowserRestore = performance.now() < 1000;
-      
-      if (isBrowserRestore) {
-        console.log('Browser restore detected - clearing all data for safety');
-        localStorage.clear();
-        sessionStorage.clear();
-        setIsLoading(false);
-        return;
+      // Avoid clearing storages in production (can wipe user/session + popup flags)
+      // Only apply the "browser restore" heuristic in development
+      if (process.env.NODE_ENV === 'development') {
+        const isBrowserRestore = performance.now() < 1000;
+        if (isBrowserRestore) {
+          console.log('Browser restore detected (dev) - clearing storages');
+          localStorage.clear();
+          sessionStorage.clear();
+          setIsLoading(false);
+          return;
+        }
       }
       
       // Check if user is logged in from sessionStorage first (default behavior)

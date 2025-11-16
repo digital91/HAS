@@ -17,7 +17,16 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     try {
-      const newSocket = io(process.env.REACT_APP_SERVER_URL || 'http://localhost:5000');
+      // In production, always connect via the same origin (through Nginx)
+      // Fall back to localhost only for local development
+      const isProd = typeof window !== 'undefined' && window.location.protocol.startsWith('https');
+      const baseUrl = isProd ? '/' : (process.env.REACT_APP_SERVER_URL || 'http://localhost:5000');
+
+      const newSocket = io(baseUrl, {
+        path: '/socket.io',
+        transports: ['websocket', 'polling'],
+        withCredentials: true
+      });
       
       newSocket.on('connect', () => {
         console.log('Connected to server');

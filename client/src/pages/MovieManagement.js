@@ -38,7 +38,7 @@ const MovieManagement = () => {
 
   const fetchMovies = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/movies');
+      const response = await axios.get('/api/movies');
       setMovies(response.data);
       setLoading(false);
     } catch (error) {
@@ -80,7 +80,7 @@ const MovieManagement = () => {
       
       const headers = { Authorization: `Bearer ${token}` };
       
-      await axios.post('http://localhost:5000/api/movies', movieData, { headers });
+      await axios.post('/api/movies', movieData, { headers });
       toast.success('Thêm phim thành công!');
       setIsAddModalOpen(false);
       resetForm();
@@ -118,9 +118,9 @@ const MovieManagement = () => {
       const headers = { Authorization: `Bearer ${token}` };
       
       console.log('Request headers:', headers);
-      console.log('Request URL:', `http://localhost:5000/api/movies/${selectedMovie._id}`);
+      console.log('Request URL:', `/api/movies/${selectedMovie._id}`);
       
-      const response = await axios.put(`http://localhost:5000/api/movies/${selectedMovie._id}`, movieData, { headers });
+      const response = await axios.put(`/api/movies/${selectedMovie._id}`, movieData, { headers });
       console.log('Update successful:', response.data);
       
       toast.success('Cập nhật phim thành công!');
@@ -142,7 +142,7 @@ const MovieManagement = () => {
         const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).token : null;
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
         
-        await axios.delete(`http://localhost:5000/api/movies/${movieId}`, { headers });
+      await axios.delete(`/api/movies/${movieId}`, { headers });
         toast.success('Xóa phim thành công!');
         fetchMovies();
       } catch (error) {
